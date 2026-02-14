@@ -207,6 +207,9 @@ while True:
     #     continue
 
     x, y, z = sensor.read_xyz_mT()
+    '''
+    To be impelemented: use x, y, z as input to determine servo output
+    '''
     t = sensor.read_temp_C()
 
     print("Data -  Magnetic: [ X: {:.3f}, Y: {:.3f}, Z: {:.3f} ] mT,    Temp: {:.2f} C".format(x, y, z, t))
