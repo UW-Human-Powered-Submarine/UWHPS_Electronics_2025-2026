@@ -2,8 +2,8 @@ from machine import I2C, Pin
 import time
 
 class TMAG5273:
-    # Default 7-bit I2C address is 0x35 (factory). :contentReference[oaicite:1]{index=1}
-    ADDR_DEFAULT = 0x35
+    # Default 7-bit I2C address is 0x22
+    ADDR_DEFAULT = 0x25
 
     # Register map (offsets) :contentReference[oaicite:2]{index=2}
     REG_DEVICE_CONFIG_1      = 0x00
@@ -182,7 +182,7 @@ class TMAG5273:
 # -------------------- Your "setup()" + "loop()" equivalent --------------------
 
 # Pico physical pin 4 = GP2 (SDA), physical pin 5 = GP3 (SCL)
-i2c = I2C(1, sda=Pin(1), scl=Pin(2), freq=400_000)
+i2c = I2C(1, sda=Pin(2), scl=Pin(3), freq=100_000)
 
 sensor = TMAG5273(i2c, addr=TMAG5273.ADDR_DEFAULT)
 
