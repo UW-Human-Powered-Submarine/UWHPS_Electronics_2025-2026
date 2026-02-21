@@ -1,9 +1,35 @@
+'''
+ * Example 1: Basic Readings
+ -------------------------
+ * This example shows the most basic way to read magnetic and temperature data from the TMAG5273 sensor.
+ * The example initializes the sensor, then continuously reads and prints the X, Y, Z magnetic field
+ * values along with the temperature to the Serial Monitor.
+ *
+ * Hardware Connections:
+ * - Connect the TMAG5273 sensor to the SparkFun Qwiic connector on your SparkFun microcontroller board.
+ *
+ * Note: Make sure to install the SparkFun TMAG5273 Arduino Library before running this example.
+ * You can install it via the Arduino Library Manager or download it from:
+ *      https://github.com/sparkfun/SparkFun_TMAG5273_Arduino_Library
+ 
+ 
+ * Pin layouts for Qwiic Linear 3D Hall-Effect Sensor-TMAG5273 to Raspberry Pi Pico_2
+ * INT: X
+ * DISABLE: X
+ * SCL: PIN5 = GP3
+ * SDA: PIN4 = GP2
+ * GND: PIN3 = GND
+ * 3V3: PIN36 = 3V3(OUT)
+
+ 
+
+'''
 from machine import I2C, Pin
 import time
 
 class TMAG5273:
     # Default 7-bit I2C address is 0x22
-    ADDR_DEFAULT = 0x25
+    ADDR_DEFAULT = 0x22
 
     # Register map (offsets) :contentReference[oaicite:2]{index=2}
     REG_DEVICE_CONFIG_1      = 0x00
@@ -207,11 +233,11 @@ while True:
     #     continue
 
     x, y, z = sensor.read_xyz_mT()
-    '''
-    To be impelemented: use x, y, z as input to determine servo output
-    '''
+    """
+    To be implemented:
+    use x, y, z as inputs to produce servo output
+    """
     t = sensor.read_temp_C()
 
     print("Data -  Magnetic: [ X: {:.3f}, Y: {:.3f}, Z: {:.3f} ] mT,    Temp: {:.2f} C".format(x, y, z, t))
     time.sleep_ms(300)
-
