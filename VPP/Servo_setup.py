@@ -43,15 +43,15 @@ while True:
         
 
     # sorts rpm into 4 categories of angles (in degrees) (SUBJECT TO CHANGE)
-    if  rpm < 75:
+    if  rpm <= 75:
         angle = 50
-    elif rpm < 125:
+    elif rpm <= 125:
         angle = 36
-    elif rpm < 150:
+    elif rpm <= 150:
         angle = 41
-    elif rpm < 175:
+    elif rpm <= 175:
         angle = 42
-    elif rpm < 225:
+    elif rpm <= 225:
         angle = 43
     else:
         angle = 44
